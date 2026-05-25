@@ -209,6 +209,39 @@ Progetto sviluppato per MachineInnovators Inc.
 
 ---
 
+## Struttura della Repository
+
+```text
+online-reputation-monitoring/
+│
+├── app/
+│   └── app.py
+│
+├── src/
+│   ├── predict.py
+│   ├── preprocessing.py
+│   ├── monitoring.py
+│   └── retraining.py
+│
+├── tests/
+│   └── test_predict.py
+│
+├── notebooks/
+│   └── sentiment_analysis_colab.ipynb
+│
+├── data/
+│   └── sample_social_posts.csv
+│
+├── .github/
+│   └── workflows/
+│       └── ci.yml
+│
+├── requirements.txt
+├── README.md
+└── LICENSE
+
+---
+
 ## Installazione
 
 Clonare la repository:
