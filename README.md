@@ -2,7 +2,6 @@
 Progetto esame per il master di AI Engineering, modulo: MLOps e Machine Learning in Produzione
 
 # ---
-# ESAME: 
 # MachineInnovators Inc. — Sentiment Analysis con MLOps
 
 ## Descrizione del Progetto
