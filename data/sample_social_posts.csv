@@ -1,0 +1,11 @@
+text,label,date
+"I love this company and their products are amazing!",Positive,2024-01-01
+"The service is okay, nothing special.",Neutral,2024-01-02
+"I had a terrible experience with customer support.",Negative,2024-01-03
+"Great innovation and very useful tools!",Positive,2024-01-04
+"The product works as expected.",Neutral,2024-01-05
+"I am disappointed with the latest update.",Negative,2024-01-06
+"Excellent quality and fast response from the team.",Positive,2024-01-07
+"It is a normal service, not bad and not great.",Neutral,2024-01-08
+"The app keeps crashing and I cannot use it.",Negative,2024-01-09
+"MachineInnovators Inc. is doing a fantastic job!",Positive,2024-01-10
