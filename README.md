@@ -248,7 +248,7 @@ online-reputation-monitoring/
 Clonare la repository:
 
 ```bash
-git clone <LINK_REPOSITORY_GITHUB>
+git clone https://github.com/andrysea/online-reputation-monitoring
 cd online-reputation-monitoring
 ```
 
@@ -328,7 +328,7 @@ Il deploy dell'applicazione viene effettuato su Hugging Face Spaces.
 Link alla demo:
 
 ```text
-<LINK_HUGGING_FACE_SPACE>
+https://huggingface.co/spaces/andrysea/online-reputation-monitoring
 ```
 
 Lo Space permette di provare il modello direttamente online tramite interfaccia web.
@@ -347,12 +347,6 @@ Il notebook Google Colab contiene l'esecuzione guidata del progetto:
 * spiegazione della pipeline MLOps;
 * link alla repository GitHub;
 * link alla demo Hugging Face Spaces.
-
-Link al notebook:
-
-```text
-<LINK_GOOGLE_COLAB>
-```
 
 ---
 
