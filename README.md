@@ -1,7 +1,6 @@
 # monitoraggio_reputazione_azienda
 Progetto esame per il master di AI Engineering, modulo: MLOps e Machine Learning in Produzione
 
-# ---
 # MachineInnovators Inc. — Sentiment Analysis con MLOps
 
 ## Descrizione del Progetto
