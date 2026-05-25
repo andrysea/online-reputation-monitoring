@@ -239,7 +239,6 @@ online-reputation-monitoring/
 ├── requirements.txt
 ├── README.md
 └── LICENSE
-````markdown
 ```
 ---
 
