@@ -1,10 +1,4 @@
-import sys
-import os
 import gradio as gr
-
-# Aggiunge la cartella principale del progetto al percorso di Python.
-# Serve per importare correttamente i moduli presenti nella cartella src.
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from src.predict import predict_sentiment
 

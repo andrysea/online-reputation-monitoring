@@ -214,9 +214,7 @@ Progetto sviluppato per MachineInnovators Inc.
 ```text
 online-reputation-monitoring/
 │
-├── app/
-│   └── app.py
-│
+├── app.py
 ├── src/
 │   ├── predict.py
 │   ├── preprocessing.py
@@ -226,9 +224,6 @@ online-reputation-monitoring/
 ├── tests/
 │   └── test_predict.py
 │
-├── notebooks/
-│   └── sentiment_analysis_colab.ipynb
-│
 ├── data/
 │   └── sample_social_posts.csv
 │
@@ -237,8 +232,7 @@ online-reputation-monitoring/
 │       └── ci.yml
 │
 ├── requirements.txt
-├── README.md
-└── LICENSE
+└── README.md
 ```
 ---
 
