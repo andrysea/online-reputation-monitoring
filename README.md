@@ -184,6 +184,22 @@ Con questo progetto, MachineInnovators Inc. promuove l'innovazione nel campo del
 
 ---
 
+## Documentazione delle Scelte Progettuali
+
+Il progetto è stato strutturato seguendo un approccio MLOps, separando il codice in moduli dedicati a preprocessing, predizione, monitoraggio e retraining.
+
+Il preprocessing è stato mantenuto minimo per non alterare eccessivamente i testi social, dato che il modello utilizzato è già addestrato su contenuti provenienti da Twitter/social media.
+
+Il modello scelto è `cardiffnlp/twitter-roberta-base-sentiment-latest`, indicato nella traccia del progetto. Sebbene la traccia menzioni FastText, il modello fornito come riferimento è basato su RoBERTa; per coerenza con la richiesta, è stato utilizzato il modello Hugging Face indicato.
+
+La pipeline CI/CD è stata implementata con GitHub Actions per eseguire automaticamente i test a ogni push o pull request, garantendo maggiore affidabilità del codice.
+
+Il deploy è stato realizzato su Hugging Face Spaces tramite Gradio, così da rendere il modello accessibile tramite interfaccia web.
+
+Il monitoraggio è stato progettato per analizzare la distribuzione dei sentiment e il loro andamento nel tempo, mentre la logica di retraining consente di stabilire quando il modello dovrebbe essere rivalutato o riaddestrato in base alle performance.
+
+---
+
 ## Tecnologie Utilizzate
 
 - Python
