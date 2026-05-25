@@ -206,3 +206,131 @@ Il sistema dovrà essere in grado di:
 ## Autore
 
 Progetto sviluppato per MachineInnovators Inc.
+
+---
+
+## Installazione
+
+Clonare la repository:
+
+```bash
+git clone <LINK_REPOSITORY_GITHUB>
+cd online-reputation-monitoring
+```
+
+Creare un ambiente virtuale:
+
+```bash
+python -m venv venv
+source venv/bin/activate
+```
+
+Su Windows:
+
+```bash
+venv\Scripts\activate
+```
+
+Installare le dipendenze:
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## Esecuzione dell'applicazione
+
+Per avviare l'app Gradio in locale:
+
+```bash
+python app/app.py
+```
+
+Dopo l'avvio, l'app sarà accessibile dal browser tramite l'indirizzo mostrato nel terminale.
+
+---
+
+## Test
+
+I test automatici si trovano nella cartella `tests/`.
+
+Per eseguirli:
+
+```bash
+pytest
+```
+
+I test verificano che:
+
+* il modello restituisca una classe valida;
+* il sistema gestisca input testuali corretti;
+* la pipeline di predizione non generi errori inattesi.
+
+---
+
+## Pipeline CI/CD
+
+La pipeline CI/CD è configurata tramite GitHub Actions nel file:
+
+```text
+.github/workflows/ci.yml
+```
+
+A ogni push o pull request, la pipeline esegue automaticamente:
+
+1. setup dell'ambiente Python;
+2. installazione delle dipendenze;
+3. esecuzione dei test automatici.
+
+Questa automazione aiuta a garantire che il codice rimanga funzionante durante lo sviluppo.
+
+---
+
+## Deploy
+
+Il deploy dell'applicazione viene effettuato su Hugging Face Spaces.
+
+Link alla demo:
+
+```text
+<LINK_HUGGING_FACE_SPACE>
+```
+
+Lo Space permette di provare il modello direttamente online tramite interfaccia web.
+
+---
+
+## Notebook Colab
+
+Il notebook Google Colab contiene l'esecuzione guidata del progetto:
+
+* caricamento del dataset;
+* caricamento del modello;
+* predizione del sentiment;
+* valutazione dei risultati;
+* visualizzazione delle metriche;
+* spiegazione della pipeline MLOps;
+* link alla repository GitHub;
+* link alla demo Hugging Face Spaces.
+
+Link al notebook:
+
+```text
+<LINK_GOOGLE_COLAB>
+```
+
+---
+
+## Risultati attesi
+
+Il sistema permette di ottenere:
+
+* classificazione automatica del sentiment;
+* distribuzione dei commenti positivi, neutri e negativi;
+* indicatori utili per monitorare la reputazione online;
+* demo web accessibile online;
+* pipeline automatizzata di test;
+* base progettuale per retraining e monitoraggio continuo.
+
+---
