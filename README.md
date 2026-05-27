@@ -215,7 +215,7 @@ pip install -r requirements.txt
 Per avviare l'app Gradio in locale:
 
 ```bash
-python app/app.py
+python app.py
 ```
 
 Dopo l'avvio, l'app sarà accessibile dal browser tramite l'indirizzo mostrato nel terminale.
