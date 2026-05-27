@@ -100,17 +100,14 @@ I dati saranno impiegati per:
 
 ## Fase 2 — Creazione della Pipeline CI/CD
 
-La pipeline CI/CD sarà sviluppata per automatizzare le principali fasi del ciclo di vita del modello.
+La pipeline CI/CD è stata sviluppata per automatizzare la validazione del progetto.
 
-La pipeline comprenderà:
+La pipeline comprende:
 
-- training del modello;
-- test di integrazione;
-- validazione delle performance;
-- deploy dell'applicazione;
-- gestione del codice tramite repository GitHub.
-
-L'obiettivo è garantire un processo di sviluppo riproducibile, scalabile e facilmente manutenibile.
+- controllo del codice tramite test automatici;
+- installazione delle dipendenze;
+- verifica della pipeline di predizione;
+- supporto al processo di deploy dell'applicazione su Hugging Face Spaces.
 
 ---
 
@@ -150,6 +147,86 @@ La pipeline CI/CD è stata implementata con GitHub Actions per eseguire automati
 Il deploy è stato realizzato su Hugging Face Spaces tramite Gradio, così da rendere il modello accessibile tramite interfaccia web.
 
 Il monitoraggio è stato progettato per analizzare la distribuzione dei sentiment e il loro andamento nel tempo, mentre la logica di retraining consente di stabilire quando il modello dovrebbe essere rivalutato o riaddestrato in base alle performance.
+
+---
+
+## Implementazioni Realizzate
+
+Durante lo sviluppo del progetto sono stati implementati diversi componenti per coprire le principali fasi di un workflow MLOps.
+
+### Preprocessing
+
+Il modulo `src/preprocessing.py` contiene la funzione dedicata alla pulizia del testo.
+
+Il preprocessing è stato mantenuto volutamente leggero, limitandosi alla gestione di input non testuali, alla rimozione di spazi multipli e alla normalizzazione degli spazi iniziali e finali.
+
+Questa scelta è stata adottata perché il modello utilizzato è già stato addestrato su testi provenienti da Twitter/social media. Una pulizia troppo aggressiva, come la rimozione di hashtag, menzioni o punteggiatura, avrebbe potuto eliminare informazioni utili per la classificazione del sentiment.
+
+### Predizione del Sentiment
+
+Il modulo `src/predict.py` gestisce il caricamento del tokenizer e del modello pre-addestrato `cardiffnlp/twitter-roberta-base-sentiment-latest`.
+
+La funzione principale `predict_sentiment()` riceve un testo in input e restituisce:
+
+- testo analizzato;
+- sentiment previsto;
+- livello di confidenza della predizione.
+
+Il modello classifica i testi in tre categorie:
+
+- Negative;
+- Neutral;
+- Positive.
+
+L'inferenza viene eseguita senza aggiornare i pesi del modello, utilizzando il modello esclusivamente per classificare il testo fornito dall'utente.
+
+### Monitoraggio
+
+Il modulo `src/monitoring.py` è stato progettato per supportare il monitoraggio della reputazione online.
+
+Le funzionalità implementate permettono di analizzare:
+
+- distribuzione dei sentiment;
+- percentuale di commenti positivi, neutri e negativi;
+- andamento del sentiment nel tempo.
+
+Queste informazioni possono essere utilizzate per osservare eventuali variazioni nella percezione dell'azienda da parte degli utenti.
+
+### Retraining e Rivalutazione
+
+Il modulo `src/retraining.py` contiene una logica di supporto alla rivalutazione del modello.
+
+Il sistema permette di confrontare le performance del modello con una soglia minima di accuratezza. Se le performance scendono sotto tale soglia, il sistema può segnalare la necessità di procedere con una nuova fase di valutazione o retraining.
+
+Nel progetto attuale il retraining è rappresentato come logica progettuale e di controllo, non come addestramento automatico completo di un nuovo modello.
+
+### Interfaccia Web
+
+L'applicazione `app.py` utilizza Gradio per fornire una semplice interfaccia web.
+
+L'utente può inserire un testo e ottenere in output:
+
+- sentiment previsto;
+- confidence score associato alla previsione.
+
+L'applicazione è stata predisposta per il deploy su Hugging Face Spaces.
+
+### Test Automatici
+
+La cartella `tests/` contiene test automatici sviluppati con `pytest`.
+
+I test verificano che:
+
+- la funzione di predizione restituisca un dizionario;
+- il sentiment previsto appartenga alle classi attese;
+- la confidence sia compresa tra 0 e 1;
+- gli input vuoti vengano gestiti senza generare errori.
+
+### CI/CD
+
+La pipeline CI/CD è stata configurata tramite GitHub Actions.
+
+A ogni push o pull request sul branch principale, la pipeline installa le dipendenze ed esegue i test automatici. Questo consente di verificare che le modifiche al codice non compromettano il funzionamento della pipeline di predizione.
 
 ---
 
@@ -282,5 +359,38 @@ Il sistema permette di ottenere:
 * demo web accessibile online;
 * pipeline automatizzata di test;
 * base progettuale per retraining e monitoraggio continuo.
+
+---
+
+## Considerazioni sui Risultati
+
+Il progetto ha permesso di realizzare un sistema funzionante per l'analisi automatica del sentiment applicata al monitoraggio della reputazione online.
+
+I principali risultati ottenuti sono:
+
+- implementazione di un modello pre-addestrato per la sentiment analysis;
+- creazione di una pipeline di preprocessing e predizione;
+- realizzazione di funzioni di monitoraggio della distribuzione dei sentiment;
+- introduzione di una logica di supporto al retraining o alla rivalutazione del modello;
+- sviluppo di un'interfaccia web con Gradio;
+- deploy dell'applicazione su Hugging Face Spaces;
+- configurazione di una pipeline CI/CD con GitHub Actions;
+- creazione di test automatici per verificare il corretto funzionamento della predizione.
+
+Il sistema rappresenta una base scalabile per un'applicazione MLOps più completa, nella quale potrebbero essere integrati in futuro nuovi dati reali, metriche di monitoraggio più avanzate e un processo di retraining completamente automatizzato.
+
+## Limiti e Sviluppi Futuri
+
+Il progetto utilizza un dataset dimostrativo e non un flusso continuo di dati reali provenienti dai social media.
+
+In una possibile evoluzione futura, il sistema potrebbe essere esteso con:
+
+- integrazione con API social o sorgenti dati esterne;
+- salvataggio storico delle predizioni;
+- dashboard di monitoraggio più avanzata;
+- metriche di model drift e data drift;
+- retraining automatico completo;
+- confronto tra più modelli di sentiment analysis;
+- supporto multilingua.
 
 ---
