@@ -137,98 +137,19 @@ Il sistema di monitoraggio sarà configurato per valutare continuamente:
 
 ---
 
-## Consegna
-
-La consegna del progetto dovrà includere:
-
-### Codice Sorgente
-
-Repository pubblico su GitHub contenente:
-
-- codice sorgente del progetto;
-- pipeline CI/CD;
-- implementazione del modello;
-- script di preprocessing;
-- codice per il monitoraggio;
-- documentazione tecnica.
-
-La consegna effettiva dovrà avvenire tramite un notebook Google Colab contenente il link al repository GitHub.
-
-### Documentazione
-
-La documentazione dovrà descrivere:
-
-- scelte progettuali;
-- architettura della soluzione;
-- implementazione del modello;
-- struttura della pipeline CI/CD;
-- modalità di deploy;
-- sistema di monitoraggio;
-- risultati ottenuti;
-- eventuali limiti e sviluppi futuri.
-
----
-
-## Motivazione del Progetto
-
-L'implementazione di un sistema di analisi del sentiment consente a MachineInnovators Inc. di migliorare significativamente la gestione della reputazione sui social media.
-
-Automatizzando l'analisi del sentiment, l'azienda potrà:
-
-- rispondere più rapidamente alle esigenze degli utenti;
-- identificare tempestivamente criticità reputazionali;
-- migliorare la soddisfazione degli utenti;
-- rafforzare l'immagine aziendale sul mercato.
-
-Con questo progetto, MachineInnovators Inc. promuove l'innovazione nel campo delle tecnologie AI, offrendo soluzioni avanzate e scalabili per le moderne sfide di gestione della reputazione aziendale.
-
----
-
 ## Documentazione delle Scelte Progettuali
 
 Il progetto è stato strutturato seguendo un approccio MLOps, separando il codice in moduli dedicati a preprocessing, predizione, monitoraggio e retraining.
 
 Il preprocessing è stato mantenuto minimo per non alterare eccessivamente i testi social, dato che il modello utilizzato è già addestrato su contenuti provenienti da Twitter/social media.
 
-Il modello scelto è `cardiffnlp/twitter-roberta-base-sentiment-latest`, indicato nella traccia del progetto. Sebbene la traccia menzioni FastText, il modello fornito come riferimento è basato su RoBERTa; per coerenza con la richiesta, è stato utilizzato il modello Hugging Face indicato.
+Il modello scelto è `cardiffnlp/twitter-roberta-base-sentiment-latest`, indicato nella traccia del progetto, basato su RoBERTa ed è stato utilizzato il modello Hugging Face indicato.
 
 La pipeline CI/CD è stata implementata con GitHub Actions per eseguire automaticamente i test a ogni push o pull request, garantendo maggiore affidabilità del codice.
 
 Il deploy è stato realizzato su Hugging Face Spaces tramite Gradio, così da rendere il modello accessibile tramite interfaccia web.
 
 Il monitoraggio è stato progettato per analizzare la distribuzione dei sentiment e il loro andamento nel tempo, mentre la logica di retraining consente di stabilire quando il modello dovrebbe essere rivalutato o riaddestrato in base alle performance.
-
----
-
-## Tecnologie Utilizzate
-
-- Python
-- Hugging Face Transformers
-- Google Colab
-- GitHub
-- GitHub Actions
-- MLOps
-- Machine Learning
-- Sentiment Analysis
-- Social Media Monitoring
-
----
-
-## Output Atteso
-
-Il sistema dovrà essere in grado di:
-
-1. acquisire o caricare testi provenienti da social media;
-2. classificare ogni testo come positivo, neutro o negativo;
-3. monitorare l'andamento del sentiment nel tempo;
-4. supportare il retraining del modello;
-5. fornire una base scalabile per il deploy e il monitoraggio continuo.
-
----
-
-## Autore
-
-Progetto sviluppato per MachineInnovators Inc.
 
 ---
 
@@ -351,22 +272,7 @@ Lo Space permette di provare il modello direttamente online tramite interfaccia 
 
 ---
 
-## Notebook Colab
-
-Il notebook Google Colab contiene l'esecuzione guidata del progetto:
-
-* caricamento del dataset;
-* caricamento del modello;
-* predizione del sentiment;
-* valutazione dei risultati;
-* visualizzazione delle metriche;
-* spiegazione della pipeline MLOps;
-* link alla repository GitHub;
-* link alla demo Hugging Face Spaces.
-
----
-
-## Risultati attesi
+## Risultati ottenuti
 
 Il sistema permette di ottenere:
 
